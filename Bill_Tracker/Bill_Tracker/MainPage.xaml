@@ -3,22 +3,91 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Bill_Tracker.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <Grid BackgroundColor="Black">
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="10*" x:Name="Column_Number" />
+            <ColumnDefinition Width="10*" x:Name="Column_Check" />
+            <ColumnDefinition Width="13*" x:Name="Column_DueDate" />
+            <ColumnDefinition Width="47*" x:Name="Column_Bill" />
+            <ColumnDefinition Width="20*" x:Name="Column_Amount" />
+            <ColumnDefinition Width="*" />
+
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="60" x:Name="Row_Title" />
+            <RowDefinition Height="30" x:Name="Row_Labels" />
+            <RowDefinition Height="*" x:Name="Row_Content" />
+            <RowDefinition Height="25" x:Name="Row_Total" />
+            <RowDefinition Height="25" x:Name="Row_Paid" />
+            <RowDefinition Height="25" x:Name="Row_Remaining" />
+
+        </Grid.RowDefinitions>
+
+        <!-- Title Row -->
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Text="Jan 2022" FontSize="35" FontAttributes="Bold" VerticalTextAlignment="Center" />
+
+        <!-- Column Headers -->
+        <Label Grid.Column="0" Grid.Row="1" Text="#" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
+        <Label Grid.Column="1" Grid.Row="1" Text="✔" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
+        <Label Grid.Column="2" Grid.Row="1" Text="Due" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
+        <Label Grid.Column="3" Grid.Row="1" Text="Bill" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
+        <Label Grid.Column="4" Grid.Row="1" Text="Amount" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontFamily="monospace" />
+
+        <!-- Content Box -->
+        <ScrollView Grid.Row="2" Grid.ColumnSpan="6" >
+
+            <StackLayout>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="10*" x:Name="Column_Number" />
+                        <ColumnDefinition Width="10*" x:Name="Column_Check" />
+                        <ColumnDefinition Width="13*" x:Name="Column_DueDate" />
+                        <ColumnDefinition Width="47*" x:Name="Column_Bill" />
+                        <ColumnDefinition Width="20*" x:Name="Column_Amount" />
+                        <ColumnDefinition Width="*" />
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0"  Text="22" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
+                    <Label Grid.Column="1"  Text="✔" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
+                    <Label Grid.Column="2"  Text="01/22" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
+                    <Label Grid.Column="3"  Text="Sample Company Inc." VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
+                    <Label Grid.Column="4"  Text="$1033.47" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontFamily="monospace" />
+
+                </Grid>
+                
+            </StackLayout>
+
+
+
+        </ScrollView>
+
+        <!-- Total -->
+        <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Text="TOTAL" FontFamily="monospace" />
+        <Label Grid.Column="5" Grid.Row="3" FontFamily="monospace" />
+        
+        <!-- Paid -->
+        <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Text="PAID" FontFamily="monospace" />
+        <Label Grid.Column="5" Grid.Row="4" FontFamily="monospace" />
+        
+        <!-- Remaining -->
+        <Label Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Text="REMAINING" FontFamily="monospace" />
+        <Label Grid.Column="5" Grid.Row="5" FontFamily="monospace" />
+        
+        <!-- Progress Bar -->
+
+        <StackLayout Grid.Column="3" Grid.Row="3" Grid.RowSpan="3" VerticalOptions="Center">
+            <ProgressBar Progress="0" ProgressColor="Orange" ScaleY="2" HorizontalOptions="Fill" VerticalOptions="Center" />
+            <Label Text="0 / 1" TextColor="Orange" FontSize="12" />
+        </StackLayout>
+
+    </Grid>
 
 </ContentPage>
