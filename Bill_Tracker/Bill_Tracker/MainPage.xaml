@@ -7,85 +7,126 @@
 
         <Grid.ColumnDefinitions>
 
-            <ColumnDefinition Width="10*" x:Name="Column_Number" />
-            <ColumnDefinition Width="10*" x:Name="Column_Check" />
-            <ColumnDefinition Width="13*" x:Name="Column_DueDate" />
-            <ColumnDefinition Width="47*" x:Name="Column_Bill" />
-            <ColumnDefinition Width="20*" x:Name="Column_Amount" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="13*" />
+            <ColumnDefinition Width="47*" />
+            <ColumnDefinition Width="20*" />
 
         </Grid.ColumnDefinitions>
 
 
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="60" x:Name="Row_Title" />
-            <RowDefinition Height="30" x:Name="Row_Labels" />
-            <RowDefinition Height="*" x:Name="Row_Content" />
-            <RowDefinition Height="25" x:Name="Row_Total" />
-            <RowDefinition Height="25" x:Name="Row_Paid" />
-            <RowDefinition Height="25" x:Name="Row_Remaining" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="90" />
 
         </Grid.RowDefinitions>
 
-        <!-- Title Row -->
-        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Text="Jan 2022" FontSize="35" FontAttributes="Bold" VerticalTextAlignment="Center" />
+        <!-- Nav Row -->
+        <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+
+            <Grid>
+                
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="Btn_Prev" Grid.Column="0" FontSize="40" Text="&lt;" Padding="0,0,0,5" BackgroundColor="Transparent" />
+                <Label Grid.Column="1" Text="Jan 2022" FontSize="35" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                <Button x:Name="Btn_Next" Grid.Column="2" FontSize="40" Text="&gt;" Padding="0,0,0,5" BackgroundColor="Transparent" />
+                
+            </Grid>
+
+
+        </StackLayout>
+
+        <Button x:Name="Btn_Opts" Grid.Column="3" Grid.Row="0" FontSize="25" Text="☰" Padding="0,0,0,5" BackgroundColor="Transparent" BorderColor="White" BorderWidth="2" CornerRadius="10" Margin="4" HorizontalOptions="End"/>
 
         <!-- Column Headers -->
-        <Label Grid.Column="0" Grid.Row="1" Text="#" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
-        <Label Grid.Column="1" Grid.Row="1" Text="✔" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
-        <Label Grid.Column="2" Grid.Row="1" Text="Due" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
-        <Label Grid.Column="3" Grid.Row="1" Text="Bill" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
-        <Label Grid.Column="4" Grid.Row="1" Text="Amount" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontFamily="monospace" />
+        <Label Grid.Column="0" Grid.Row="1" Text="✔" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
+        <Label Grid.Column="1" Grid.Row="1" Text="Due" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+        <Label Grid.Column="2" Grid.Row="1" Text="Bill" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+        <Label Grid.Column="3" Grid.Row="1" Text="Amount" VerticalTextAlignment="Center" HorizontalTextAlignment="End"  />
 
         <!-- Content Box -->
-        <ScrollView Grid.Row="2" Grid.ColumnSpan="6" >
+        <ScrollView Grid.Row="2" Grid.ColumnSpan="4" VerticalOptions="Start">
 
-            <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
 
-                <Grid>
-                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"  />
+                    <ColumnDefinition Width="13*"  />
+                    <ColumnDefinition Width="47*"  />
+                    <ColumnDefinition Width="20*"  />
 
-                        <ColumnDefinition Width="10*" x:Name="Column_Number" />
-                        <ColumnDefinition Width="10*" x:Name="Column_Check" />
-                        <ColumnDefinition Width="13*" x:Name="Column_DueDate" />
-                        <ColumnDefinition Width="47*" x:Name="Column_Bill" />
-                        <ColumnDefinition Width="20*" x:Name="Column_Amount" />
-                        <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                    </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" HorizontalOptions="Center" />
+                <Label Grid.Column="1"  Text="01/07" TextDecorations="Strikethrough" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+                <Label Grid.Column="2"  Text="Sample Company Inc." TextDecorations="Strikethrough" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+                <Label Grid.Column="3"  Text="$1033.47" TextDecorations="Strikethrough" VerticalTextAlignment="Center" HorizontalTextAlignment="End"  />
 
-                    <Label Grid.Column="0"  Text="22" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
-                    <Label Grid.Column="1"  Text="✔" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontFamily="monospace" />
-                    <Label Grid.Column="2"  Text="01/22" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
-                    <Label Grid.Column="3"  Text="Sample Company Inc." VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontFamily="monospace" />
-                    <Label Grid.Column="4"  Text="$1033.47" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontFamily="monospace" />
+                <CheckBox Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" />
+                <Label Grid.Column="1" Grid.Row="1" Text="01/13" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+                <Label Grid.Column="2" Grid.Row="1" Text="Sample Company Inc." VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+                <Label Grid.Column="3" Grid.Row="1" Text="$ 125.00" VerticalTextAlignment="Center" HorizontalTextAlignment="End"  />
 
-                </Grid>
-                
-            </StackLayout>
+                <CheckBox Grid.Column="0" Grid.Row="2" HorizontalOptions="Center" />
+                <Label Grid.Column="1" Grid.Row="2" Text="01/22" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+                <Label Grid.Column="2" Grid.Row="2" Text="Sample Company Inc." VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
+                <Label Grid.Column="3" Grid.Row="2" Text="$ 510.12" VerticalTextAlignment="Center" HorizontalTextAlignment="End"  />
 
+            </Grid>
 
 
         </ScrollView>
 
-        <!-- Total -->
-        <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Text="TOTAL" FontFamily="monospace" />
-        <Label Grid.Column="5" Grid.Row="3" FontFamily="monospace" />
-        
-        <!-- Paid -->
-        <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Text="PAID" FontFamily="monospace" />
-        <Label Grid.Column="5" Grid.Row="4" FontFamily="monospace" />
-        
-        <!-- Remaining -->
-        <Label Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3" Text="REMAINING" FontFamily="monospace" />
-        <Label Grid.Column="5" Grid.Row="5" FontFamily="monospace" />
-        
-        <!-- Progress Bar -->
+        <StackLayout Grid.Row="3" Grid.ColumnSpan="4" >
 
-        <StackLayout Grid.Column="3" Grid.Row="3" Grid.RowSpan="3" VerticalOptions="Center">
-            <ProgressBar Progress="0" ProgressColor="Orange" ScaleY="2" HorizontalOptions="Fill" VerticalOptions="Center" />
-            <Label Text="0 / 1" TextColor="Orange" FontSize="12" />
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="20*" />
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="15*" />
+
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+
+                </Grid.RowDefinitions>
+
+                <!-- Total -->
+                <Label Grid.Column="0" Grid.Row="0"  Text="TOTAL"  />
+                <Label Grid.Column="2" Grid.Row="0"  Text="$1668.59" HorizontalTextAlignment="End" />
+
+                <!-- Paid -->
+                <Label Grid.Column="0" Grid.Row="1"  Text="PAID"  />
+                <Label Grid.Column="2" Grid.Row="1"  Text="$1033.47" HorizontalTextAlignment="End" />
+
+                <!-- Remaining -->
+                <Label Grid.Column="0" Grid.Row="2"  Text="REMAINING"  />
+                <Label Grid.Column="2" Grid.Row="2"  Text="$ 635.12" HorizontalTextAlignment="End" />
+
+                <!-- Progress Bar -->
+                <StackLayout Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" VerticalOptions="Center" Padding="20">
+                    <ProgressBar Progress="0.619" ProgressColor="Orange" ScaleY="2" HorizontalOptions="Fill" VerticalOptions="Center" />
+                    <Label Text="1 / 3" TextColor="Orange" FontSize="12" />
+                </StackLayout>
+
+            </Grid>
+
         </StackLayout>
 
     </Grid>
