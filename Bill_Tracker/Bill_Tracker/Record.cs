@@ -1,29 +1,21 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace Bill_Tracker
 {
-    internal class Model
+
+    internal class Record
     {
-        private Dictionary<int, Year> _years;
 
-        Model()
-        {
-            _years = new Dictionary<int, Year>();
-        }
+        private int _year;
+        private Dictionary<int, Month> _months;
 
-        private class Year
-        {
+        [PrimaryKey]
+        public int year { get { return _year; } set { _year = value; } }
 
-            private Dictionary<int, Month> _months;
-
-            Year()
-            {
-                _months = new Dictionary<int, Month>();
-            }
-
-        }
 
         private class Month
         {
@@ -95,7 +87,7 @@ namespace Bill_Tracker
             }
 
         }
-    }
 
+    }
 
 }
