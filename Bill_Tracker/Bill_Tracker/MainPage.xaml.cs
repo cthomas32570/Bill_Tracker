@@ -14,34 +14,35 @@ namespace Bill_Tracker
         {
             InitializeComponent();
 
-            labelMonth.Text = $"{Enum.GetName(typeof(M), month)} {record.Year}";
+            labelMonth.Text = $"{Enum.GetName(typeof(Month), month)} {record.Year}";
 
             decimal billsTotal = 0;
             decimal billsPaid = 0;
 
             int i = 0;
-            foreach (Record.Bill bill in record[month].Bills)
+            foreach (Bill bill in record[month])
             {
                 billsTotal += bill.Amount;
                 billsPaid += bill.IsPaid ? bill.Amount : 0;
 
                 string monthDigits = (month + 1) < 10 ? $"0{month + 1}" : $"{month + 1}";
+                string dayDigits = bill.DueDay < 10 ? $"0{bill.DueDay}" : $"{bill.DueDay}";
 
                 TextDecorations getStrikethrough = bill.IsPaid ? TextDecorations.Strikethrough : TextDecorations.None;
 
                 BillDisplay.Children.Add(new CheckBox { 
                     IsChecked = bill.IsPaid, 
                     HorizontalOptions = LayoutOptions.Center 
-                }, i, 0);
+                }, 0, i);
 
                 BillDisplay.Children.Add(new Label { 
 
-                    Text = $"{monthDigits}/{bill.DueDay}", 
+                    Text = $"{monthDigits}/{dayDigits}", 
                     TextDecorations = getStrikethrough,
                     VerticalTextAlignment = TextAlignment.Center,
                     HorizontalTextAlignment = TextAlignment.Start
 
-                }, i, 1);
+                }, 1, i);
 
                 BillDisplay.Children.Add(new Label
                 {
@@ -51,7 +52,7 @@ namespace Bill_Tracker
                     VerticalTextAlignment = TextAlignment.Center,
                     HorizontalTextAlignment = TextAlignment.Start
 
-                }, i, 2);
+                }, 2, i);
 
                 BillDisplay.Children.Add(new Label
                 {
@@ -61,7 +62,7 @@ namespace Bill_Tracker
                     VerticalTextAlignment = TextAlignment.Center,
                     HorizontalTextAlignment = TextAlignment.End
 
-                }, i, 3);
+                }, 3, i);
 
                 i++;
 

@@ -10,7 +10,7 @@ namespace Bill_Tracker
         
         private static Database _database;
 
-        public static Database Database
+        internal static Database Database
         {
             get
             {
@@ -30,8 +30,7 @@ namespace Bill_Tracker
             InitializeComponent();
 
 
-
-            MainPage = new MainPage(new Record, 0);
+            MainPage = new MainPage(TestCases.TestRecord01(), 0);
         }
 
         protected override void OnStart()

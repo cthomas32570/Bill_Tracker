@@ -67,21 +67,6 @@
 
                 </Grid.ColumnDefinitions>
 
-                <CheckBox Grid.Column="0" HorizontalOptions="Center" />
-                <Label Grid.Column="1"  Text="01/07" TextDecorations="Strikethrough" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
-                <Label Grid.Column="2"  Text="Sample Company Inc." TextDecorations="Strikethrough" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
-                <Label Grid.Column="3"  Text="$1033.47" TextDecorations="Strikethrough" VerticalTextAlignment="Center" HorizontalTextAlignment="End"  />
-
-                <CheckBox Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" />
-                <Label Grid.Column="1" Grid.Row="1" Text="01/13" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
-                <Label Grid.Column="2" Grid.Row="1" Text="Sample Company Inc." VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
-                <Label Grid.Column="3" Grid.Row="1" Text="$ 125.00" VerticalTextAlignment="Center" HorizontalTextAlignment="End"  />
-
-                <CheckBox Grid.Column="0" Grid.Row="2" HorizontalOptions="Center" />
-                <Label Grid.Column="1" Grid.Row="2" Text="01/22" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
-                <Label Grid.Column="2" Grid.Row="2" Text="Sample Company Inc." VerticalTextAlignment="Center" HorizontalTextAlignment="Start"  />
-                <Label Grid.Column="3" Grid.Row="2" Text="$ 510.12" VerticalTextAlignment="Center" HorizontalTextAlignment="End"  />
-
             </Grid>
 
 
