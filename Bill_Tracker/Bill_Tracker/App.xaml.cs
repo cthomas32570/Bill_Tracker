@@ -8,20 +8,20 @@ namespace Bill_Tracker
     public partial class App : Application
     {
         
-        private static Database database;
+        private static Database _database;
 
         public static Database Database
         {
             get
             {
-                if (database == null)
+                if (_database == null)
                 {
-                    database = new Database(
+                    _database = new Database(
                         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Records.db3")
                     );
                 }
 
-                return database;
+                return _database;
             }
         }
 
@@ -31,7 +31,7 @@ namespace Bill_Tracker
 
 
 
-            MainPage = new MainPage();
+            MainPage = new MainPage(new Record, 0);
         }
 
         protected override void OnStart()

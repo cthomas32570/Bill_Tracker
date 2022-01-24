@@ -7,17 +7,39 @@ using SQLite;
 namespace Bill_Tracker
 {
 
+    enum M
+    {
+
+        Jan,
+        Feb,
+        Mar,
+        Apr,
+        May,
+        Jun,
+        Jul,
+        Aug,
+        Sep,
+        Oct,
+        Nov,
+        Dec
+
+    }
+
     internal class Record
     {
 
-        private int _year;
-        private Dictionary<int, Month> _months;
+        private Month[] _months = new Month[12];
 
         [PrimaryKey]
-        public int year { get { return _year; } set { _year = value; } }
+        public int Year { get; }
 
+        public Month this[int i]
+        {
+            get { return _months[i]; }
+            set { _months[i] = value; }
+        }
 
-        private class Month
+        internal class Month
         {
 
             private List<Bill> _bills;
@@ -27,9 +49,11 @@ namespace Bill_Tracker
                 _bills = new List<Bill>();
             }
 
+            public List<Bill> Bills { get { return _bills; } }
+
         }
 
-        private class Bill
+        internal class Bill
         {
 
             private bool reoccur;
@@ -41,46 +65,49 @@ namespace Bill_Tracker
             private string _name;
             private decimal _amount;
 
-            Bill(bool reoccur, bool reoccurAmount, int dueDay, string name, decimal amount)
+            Bill(bool reoccur, bool reoccurAmount, int DueDay, string Name, decimal Amount)
             {
                 this.reoccur = reoccur;
                 this.reoccurAmount = reoccurAmount;
 
-                this._dueDay = dueDay;
-                this._name = name;
-                this._amount = amount;
+                this._dueDay = DueDay;
+                this._name = Name;
+                this._amount = Amount;
 
                 this.isPaid = false;
             }
 
-            public void ToggleReoccur()
+            public bool Reoccur
             {
-                reoccur = !reoccur;
+                get { return reoccur; }
+                set { reoccur = value; }
             }
 
-            public void ToggleReoccurAmount()
+            public bool ReoccurAmount
             {
-                reoccurAmount = !reoccurAmount;
+                get { return reoccurAmount; }
+                set { reoccurAmount = value; }
             }
 
-            public void ToggleIsPaid()
+            public bool IsPaid
             {
-                isPaid = !isPaid;
+                get { return isPaid; }
+                set { isPaid = value; }
             }
 
-            public int dueDay
+            public int DueDay
             {
                 get { return _dueDay; }
                 set { _dueDay = value; }
             }
 
-            public string name
+            public string Name
             {
                 get { return _name; }
                 set { _name = value; }
             }
 
-            public decimal amount
+            public decimal Amount
             {
                 get { return _amount; }
                 set { _amount = value; }

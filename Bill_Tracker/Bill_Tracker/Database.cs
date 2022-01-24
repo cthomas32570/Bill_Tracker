@@ -15,5 +15,6 @@ namespace Bill_Tracker
             _connection = new SQLiteAsyncConnection(dbPath);
             _connection.CreateTableAsync<Record>();
         }
+
     }
 }
